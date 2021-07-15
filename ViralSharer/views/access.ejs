@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>ViralSharer</title>
+    </head>
+
+    <body>
+        <% function hd(){ %>
+            <h2>File Delivery</h2>
+            <form action = "/access/show" method = "POST">
+                <input type = "email" name = "mail" placeholder="JohnDoe@example.com" required>
+                <br />
+                <input type = "submit">
+            </form>
+        <% } %>
+
+        <% function show(n, f){ %>
+            <h2>Files of <%= n %></h2>
+            <% f.forEach((elem, it_ind) => { %>
+                <a href = "/download/<%= index %>/<%= it_ind %>"><%= elem.name %></a>
+                <br />
+            <% });%>
+        <% } %>
+
+        <% if(mail == null){ %>
+            <% hd(); %>
+        <% }else{ %>
+            <% show(mail, files) %>
+        <% } %>
+        
+    </body>
+</html>
